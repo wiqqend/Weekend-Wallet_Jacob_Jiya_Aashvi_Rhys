@@ -1,11 +1,6 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 public class MoneySaver {
 public static void main(String[] args) {
-
-    ArrayList<Activities> activitiesList = new ArrayList<>();
-    activitiesList.add(new Activities("Movie", 15.0, 2.0));
-    activitiesList.add(new Activities("Concert", 50.0, 3.0));
 
     Scanner input = new Scanner(System.in);
 
@@ -15,6 +10,22 @@ public static void main(String[] args) {
     double currentTime = input.nextDouble();
     System.out.println("Please enter what personality type you are (1 for introvert, 2 for extrovert): ");
     int personalityType = input.nextInt();
+//Arraylist Activites 
+    Activities.getActivitiesList().add(new Activities("Hiking", 0.0, 3.0, 1));
+    Activities.getActivitiesList().add(new Activities("Movie", 15.0, 2.0, 2));
+    Activities.getActivitiesList().add(new Activities("Concert", 50.0, 3.0, 2));
+    Activities.getActivitiesList().add(new Activities("Bowling", 20.0, 2.0, 2));
+    Activities.getActivitiesList().add(new Activities("Museum", 10.0, 1.5, 1));
+    Activities.getActivitiesList().add(new Activities("Beach", 0.0, 4.0, 1));
+    Activities.getActivitiesList().add(new Activities("Amusement Park", 80.0, 5.0, 2));
+    Activities.getActivitiesList().add(new Activities("Online Shopping", budget, 1.0, 1 ));
+    Activities.getActivitiesList().add(new Activities("Facetime with friends", 0.0, 1.0, 2));
+    Activities.getActivitiesList().add(new Activities("Personal Development", 0.0, .5, 1));
+
+
+
+
+    
 
     new Coupon("SAVE15", 0.15, "Concert", 50.0, 3.0);
 
@@ -27,10 +38,12 @@ public static void main(String[] args) {
             if (personalityType == 1){
                 System.out.println("You are an introvert. Here are some free activities you can do: ");
                 // somehow list all instances of the Activities class where cost == 0
+                Activities.printFreeActivities();
             }
             else if (personalityType == 2){
                 System.out.println("You are an extrovert. Here are some free activities you can do: ");
                 // somehow list all instances of the Activities class where cost == 0
+                Activities.printFreeActivities();
             }
             else{
                 System.out.println("Invalid personality type. Please enter 1 for introvert or 2 for extrovert.");
@@ -41,11 +54,12 @@ public static void main(String[] args) {
         if (budget > 0 && budget < 15){
             System.out.println("You have a budget of $" + budget + ". Here are your options: ");
             // somehow list all instances of the Activities class where cost <= budget
-            Activities.printCheap();
+            Activities.printCheapunder15();
         }
         if (budget >= 15 && budget < 50){
             System.out.println("You have a budget of $" + budget + ". Here are your options: ");
             // somehow list all instances of the Activities class where cost <= budget
+            Activities.printCheapunder50();
         }
         if (budget >= 50){
 
@@ -55,6 +69,7 @@ public static void main(String[] args) {
 
             System.out.println("You have a budget of $" + budget + ". Here are your options: ");
             // somehow list all instances of the Activities class where cost <= budget
+            Activities.printover50();
         }
 
 
@@ -66,7 +81,7 @@ public static void main(String[] args) {
 
     else{
 
-    }
+    } 
 
 
 
@@ -74,5 +89,5 @@ public static void main(String[] args) {
 
 
 
-
+input.close();
 }}
