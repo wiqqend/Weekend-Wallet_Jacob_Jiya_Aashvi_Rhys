@@ -22,4 +22,7 @@ public class Coupon extends Activities {
     public void setDiscount(double discount) {
         this.discount = discount;
     }
+    public boolean hasCoupon(String code) {
+        return this.code.equals(code);
+    }
 }

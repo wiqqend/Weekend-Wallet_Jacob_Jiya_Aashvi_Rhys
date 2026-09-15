@@ -10,6 +10,13 @@ public class Activities extends MoneySaver {
 
     }
 
+    public static void printCheap(){
+        for (Activities a: allActivities){
+            if (a.getCost() < 15.0){
+                System.out.println(a.getActivityName() + ": $" + a.getCost() + ", Duration: " + a.getDuration() + " hours");
+            }
+        }
+    }
     public double getCost(){
         return cost;
     }
@@ -32,7 +39,7 @@ public class Activities extends MoneySaver {
     public void setDuration(double duration){
         this.duration = duration;
     }
-    
+
 
 
 
